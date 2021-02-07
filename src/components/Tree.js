@@ -1,19 +1,18 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
-class Tree extends Component{
-    onChoose = () => {
-        
-    };
-    render(){
-        const{id, name, description, points} = this.props.tree;
-        return(
-            <tr>
-                <td style={{textAlign: "center"}}>{id}</td>
+class Tree extends Component {
+    render() {
+        var handler  =   this.props.handler;
+        const { id, name, description, points } = this.props.tree;
+        const tr = { id, name, description, points }
+        return (
+            <tr >
+                <td style={{ width: "50px", textAlign: "center" }}>{id}</td>
                 <td>{name}</td>
-                <td>{description}</td>
-                <td>{points}</td>
-                <td>
-                    <button onClick={this.onChoose}>
+                <td style={{ width: "200px" }}>{description}</td>
+                <td style={{ width: "50px" }}>{points}</td>
+                <td style={{ width: "100px" }} >
+                    <button onClick={()=>handler(tr)}>
                         Choose
                     </button>
                 </td>
