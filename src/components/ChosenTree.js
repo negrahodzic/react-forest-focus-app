@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Timer from "./Timer";
 import Tree from "./Tree";
 
 class ChosenTree extends Component {
@@ -13,7 +14,7 @@ class ChosenTree extends Component {
                     <td style={{ width: "200px" }}>{description}</td>
                     <td style={{ width: "50px" }}>{points}</td>
                 </tr>
-                <p>timer goes here</p>
+                <Timer />
             </div>
         );
     }

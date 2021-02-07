@@ -4,7 +4,6 @@ import TreeList from "./components/TreeList";
 import Info from "./components/Info";
 import ChosenTree from "./components/ChosenTree"
 import { BrowserRouter, Route } from 'react-router-dom';
-import Tree from "./components/Tree";
 
 class App extends Component {
   state = {
