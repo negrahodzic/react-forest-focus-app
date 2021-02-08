@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import './App.css';
 import TreeList from "./components/TreeList";
 import Info from "./components/Info";
-import ChosenTree from "./components/ChosenTree"
 import { BrowserRouter, Route } from 'react-router-dom';
+import Tree from "./components/Tree";
 
 class App extends Component {
   state = {
@@ -19,12 +19,24 @@ class App extends Component {
         name: "Wisteria",
         description: "The orange tree",
         points: 10
+      },
+      {
+        id: 3,
+        name: "Moon Tree",
+        description: "To Moon and back",
+        points: 13
+      },
+      {
+        id: 4,
+        name: "Ginko",
+        description: "The yellow tree",
+        points: 18
       }],
     tree: {
-      id: 2,
-      name: "Wisteria",
-      description: "The orange tree",
-      points: 10
+      id: 5,
+      name: "WiQa",
+      description: "The purple tree",
+      points: 9
     }
   };
 
