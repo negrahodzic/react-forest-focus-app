@@ -1,3 +1,4 @@
+import Button from 'react-bootstrap/Button';
 import React, { Component } from "react";
 
 class Tree extends Component {
@@ -12,9 +13,9 @@ class Tree extends Component {
                 <td style={{ width: "200px" }}>{description}</td>
                 <td style={{ width: "50px" }}>{points}</td>
                 <td style={{ width: "100px" }} >
-                    <button onClick={()=>handler(tr)}>
+                    <Button variant="dark" onClick={()=>handler(tr)}>
                         Choose
-                    </button>
+                    </Button>
                 </td>
             </tr>
         );

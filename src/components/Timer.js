@@ -22,7 +22,8 @@ class Timer extends Component {
                 // When countdown is finsihed
                 if (distance < 0) {
                     clearInterval(x);
-                    document.getElementById("timer").innerHTML = "Successfully planted your tree!";
+                    document.getElementById("timer").innerHTML = "Time's up!";
+                    document.getElementById("status").innerHTML = "Successfully planted your tree!";
                 }
             }, 1000);
     }
@@ -34,7 +35,8 @@ class Timer extends Component {
         
         return (
             <div>
-                <p id="timer"></p>
+                <p id="timer">Starting timer...</p>
+                <p id="status">Tree is growing.</p>
             </div>
         );
 

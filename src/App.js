@@ -3,7 +3,8 @@ import './App.css';
 import TreeList from "./components/TreeList";
 import Info from "./components/Info";
 import { BrowserRouter, Route } from 'react-router-dom';
-import Tree from "./components/Tree";
+import { Nav, Navbar } from "react-bootstrap";
+import Forest from "./img/forest.jpg";
 
 class App extends Component {
   state = {
@@ -12,7 +13,7 @@ class App extends Component {
         id: 1,
         name: "Water Spirit",
         description: "Very watery tree",
-        points: 15 
+        points: 15
       },
       {
         id: 2,
@@ -45,19 +46,27 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <header className="App-header">
-            <nav>
-              <ul style={{ decoration: "none", margin: "0", width: "100%", textAlign: "center" }}>
-                <li style={{ display: "inline-block", margin: "20px" }}><a href="/">Home</a></li>
-                <li style={{ display: "inline-block", margin: "20px" }}><a href="/c">Choose tree</a></li>
-              </ul>
-            </nav>
-            <p></p>
-            <Route path="/" exact render={()=><Info 
-              info = "Dobrodosli! Treba da izaberete drvo i vreme koliko zelite da sadite. Nakon toga dobijate bodove." 
-              />}/>
-            <Route path="/c" exact render={()=><TreeList
-              trees={this.state.trees}
-            />}/>
+            <Navbar bg="dark" variant="dark" fixed="top" style={{ paddingLeft: "43%" }}>
+              <Nav className="mr-auto">
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/choose">Choose tree</Nav.Link>
+              </Nav>
+            </Navbar>
+            <Route path="/" exact render={() =>
+                <div>
+                  <img src={Forest} />
+                  <Info info="Forest is an app that helps you stay focused on the important things in life." />
+                  <Info info="Go trough our list of available trees and see which one you like the most." />
+                  <Info info="After choosing your tree and minutes, timer will start!" />
+                  <Info info="Happy planting!" />
+                </div>
+
+            } />
+            <Route path="/choose" exact render={() =>
+              <div>
+                <TreeList trees={this.state.trees} />
+              </div>
+            } />
           </header>
         </div>
       </BrowserRouter>

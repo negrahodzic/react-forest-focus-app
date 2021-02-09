@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { Button, Card, Form } from "react-bootstrap";
 import Info from "./Info";
 import Timer from "./Timer";
-import Tree from "./Tree";
+import TreeImg from "../img/tree.png";
 
 class ChosenTree extends Component {
     state = {
@@ -12,7 +13,7 @@ class ChosenTree extends Component {
     handleChange = this.handleChange.bind(this);
 
     handleChange(event) {
-        this.setState({ 
+        this.setState({
             min: event.target.value,
             submitted: false
         });
@@ -29,27 +30,31 @@ class ChosenTree extends Component {
         const { id, name, description, points } = this.props.tree;
         let m = this.state.min;
         return (
-            <div>
-                <h3>Your chosen tree is: </h3>
-                <tr>
-                    <td style={{ width: "50px", textAlign: "center" }}>{id}</td>
-                    <td>{name}</td>
-                    <td style={{ width: "200px" }}>{description}</td>
-                    <td style={{ width: "50px" }}>{points}</td>
-                </tr>
+            <div  style={{marginTop: "80px"}}>
+                <Info info="This is your chosen tree." />
+                <Card style={{ width: '18rem', height: '17rem', marginBottom: "20px" }}>
+                <Card.Img variant="top" src={TreeImg} style={{ height: '150px', padding: "10px" }}/>
+                    <Card.Body>
+                        <Card.Title className="mb-2 text-muted">{name}</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">{points} points </Card.Subtitle>
+                        <Card.Text className="mb-2 text-muted"> {description}</Card.Text>
+                    </Card.Body>
+                </Card>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group controlId="minutes">
+                        <Form.Label> How many minutes?</Form.Label>
+                        <Form.Control type="text" placeholder="Enter minutes" value={this.state.min} onChange={this.handleChange} />
+                    </Form.Group>
+                    <Button variant="dark" type="submit">
+                        Start
+                    </Button>
+                </Form>
                 <br></br>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Koliko minuta:
-                    <input type="number" value={this.state.min} onChange={this.handleChange} />
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
-                
-                {   this.state.submitted!=false ?
+                {   this.state.submitted != false ?
                     <Timer minutes={this.state.min} />
                     : <div>
-                        <p id="timer">Here goes timer</p>
+                        <p id="timer"></p>
+                        <p id="status"></p>
                     </div>
                 }
 
